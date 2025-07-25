@@ -16,7 +16,7 @@
     with pkgs;
     {
       devShells.default = mkShell {
-        buildInputs = [
+        packages = [
           (pkgs.python3.withPackages (python-pkgs: [
             python-pkgs.numpy
             python-pkgs.matplotlib
@@ -24,16 +24,8 @@
             python-pkgs.uv-build
             python-pkgs.ruff
           ]))
-          # uv # Python package manager
-          # ruff # Python liter and code formatter
-          # ty # Unfinished python type checker
         ];
       };
-
-      # devShells.nightly = mkShell {
-      #   buildInputs = [ rust-bin.nightly.latest.default ];
-
-      # };
     }
   );
 }
